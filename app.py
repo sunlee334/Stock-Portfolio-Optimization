@@ -8,12 +8,15 @@ import pandas as pd
 import streamlit as st
 import yfinance as yf
 import plotly.graph_objects as go
+import plotly.express as px
+from plotly.subplots import make_subplots
 
 from datetime import datetime
 from stqdm import stqdm
 from backdata import investment
 from backdata import start_year, start_month, start_day
 from backdata import tickers as init_tickers
+from backdata import rate_10y, continued_claims, funds
 from collections import OrderedDict
 
 st.set_page_config(page_title="Sun's Stock Portfolio Optimizer", layout="wide")
@@ -24,6 +27,49 @@ with col1:
     start_date = st.date_input("Start Date", datetime(start_year, start_month, start_day))
 with col2:
     end_date = st.date_input("End Date")  # it defaults to current date
+
+st.header("실업청구 3,500K 이상")
+st.header("10년물 금리 4% 이상")
+
+continued_claims = pd.DataFrame(continued_claims)
+continued_claims.index = continued_claims.index.strftime('%Y-%m-%d')
+continued_claims.rename(columns={0: 'Continued Claims'}, inplace=True)
+
+rate_10y = pd.DataFrame(rate_10y)
+rate_10y.index = rate_10y.index.strftime('%Y-%m-%d')
+rate_10y.rename(columns={0: 'Rate 10Y'}, inplace=True)
+
+funds = pd.DataFrame(funds)
+funds.index = funds.index.strftime('%Y-%m-%d')
+funds.rename(columns={0: 'Funds'}, inplace=True)
+
+col1, col2, col3, col4, col5, col6 = st.columns(6)
+with col1:
+    st.subheader("실업 청구")
+    st.dataframe(continued_claims.style.format("{:,.0f}"))
+with col2:
+    st.subheader("10년물 금리")
+    st.dataframe(rate_10y.style.format("{:.2f}"))
+with col3:
+    st.subheader("기준 금리")
+    st.dataframe(funds.style.format("{:.2f}"))
+# with col4:
+#     st.subheader("10년물 금리")
+#     st.dataframe(rate_10y.style.format("{:.2f}"))
+# with col5:
+#     st.subheader("기준 금리")
+#     st.dataframe(funds.style.format("{:.2f}"))
+# with col6:
+
+fig = make_subplots(specs=[[{"secondary_y": True}]])
+
+fig.add_trace(go.Scatter(x=continued_claims.index, y=continued_claims['Continued Claims'], name="실업 청구"))
+fig.add_trace(go.Scatter(x=rate_10y.index, y=rate_10y['Rate 10Y'], name="10년물 금리"), secondary_y=True)
+fig.add_trace(go.Scatter(x=funds.index, y=funds['Funds'], name="기준 금리", mode='lines+markers'), secondary_y=True)
+
+st.plotly_chart(fig, use_container_width=True)
+
+## 티커
 
 init_tickers = init_tickers
 init_tickers_string = ', '.join(init_tickers)
@@ -42,8 +88,7 @@ else:
     df = yf.download(tickers, start=start_date, end=end_date)['Adj Close'].dropna(how="all")
 
 df.index = df.index.strftime('%Y-%m-%d')
-df = df.round(decimals=2)
-st.dataframe(df)
+st.dataframe(df.style.format("{:.2f}"))
 
 # Display everything on Streamlit
 if tickers[0] == '':
@@ -81,7 +126,6 @@ df = df[['Returns', 'Risk', 'Sharpe'] + [s for s in tickers]]
 df
 
 min_risk = df.loc[df['Risk'] == df['Risk'].min()]  # Low Risk
-
 max_sharpe = df.loc[df['Sharpe'] == df['Sharpe'].max()]  # Max Sharpe
 
 fig = go.Figure()
