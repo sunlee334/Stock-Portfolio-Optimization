@@ -1,5 +1,5 @@
 investment = 100
-start_year = 2012
+start_year = 2018
 start_month = 1
 start_day = 1
 end_year = 2022
