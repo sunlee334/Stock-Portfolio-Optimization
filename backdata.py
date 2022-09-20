@@ -1,15 +1,3 @@
-tickers = [
-    'AAPL',  # 애플
-    'AMT',  # 아메리칸 타워
-    'AMZN',  # 아마존닷컴
-    'CMG',  # 치포틀레 멕시칸 그릴
-    'EQIX',  # 에퀴닉스
-    'MSFT',  # 마이크로 소프트
-    # 'SCHD', # SCHWAB US DIVIDEND EQUITY ETF
-    'UNH'  # 유나이티드헬스 그룹
-    # 'VOO', # VANGUARD S&P 500 ETF
-    # 'VTI' # VANGUARD TOTAL STOCK MARKET ETF
-]
 investment = 100
 start_year = 2012
 start_month = 1
@@ -37,8 +25,7 @@ basic_materials = [
     'LIN'  # Linde plc
 ]
 communication_services = [
-    'GOOGL',  # Alphabet Inc.
-    'META'  # Meta Platforms, Inc.
+    'GOOGL'  # Alphabet Inc.
 ]
 consumer_cyclical = [
     'AMZN',  # Amazon.com, Inc.
@@ -46,15 +33,15 @@ consumer_cyclical = [
 ]
 consumer_defensive = [
     'WMT',  # Walmart Inc.
-    'PG'  # The Procter & Gamble Company
+    'PG',  # The Procter & Gamble Company
+    'CMG'  # Chipotle Mexican Grill, Inc.
 ]
 energy = [
     'XOM',  # Exxon Mobil Corporation
     'CVX'  # Chevron Corporation
 ]
 financial_services = [
-    'BRK-B',  # Berkshire Hathaway Inc.
-    'V'  # Visa Inc.
+    'BRK-B'  # Berkshire Hathaway Inc.
 ]
 healthcare = [
     'UNH',  # UnitedHealth Group Incorporated
@@ -62,17 +49,38 @@ healthcare = [
 ]
 industrials = [
     'UPS',  # United Parcel Service, Inc.
-    'UNP'  # Union Pacific Corporation
+    'RTX'  # Raytheon Technologies Corporation
 ]
 real_estate = [
     'AMT',  # American Tower Corporation
-    'PLD'  # Prologis, Inc.
+    'PLD',  # Prologis, Inc.
+    'EQIX'  # Equinix, Inc.
 ]
 technology = [
-    'AAPL', # Apple Inc.
+    'AAPL',  # Apple Inc.
     'MSFT'  # Microsoft Corporation
 ]
 utilities = [
     'NEE',  # NextEra Energy, Inc.
     'SO'  # The Southern Company
 ]
+
+sectors = basic_materials + \
+          communication_services + \
+          consumer_cyclical + \
+          consumer_defensive + \
+          energy + \
+          financial_services + \
+          healthcare + \
+          industrials + \
+          real_estate + \
+          technology + \
+          utilities
+etfs = [
+    'BOTZ',  # Global X Robotics & Artificial Intelligence ETF
+    'SCHD',  # SCHWAB US DIVIDEND EQUITY ETF
+    'VOO',  # VANGUARD S&P 500 ETF
+    'VTI'  # VANGUARD TOTAL STOCK MARKET ETF
+]
+
+tickers = etfs + sectors
