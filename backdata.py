@@ -18,4 +18,61 @@ end_year = 2022
 end_month = 1
 end_day = 1
 
-#%%
+industry_list = [
+    'Basic Materials',
+    'Communication Services',
+    'Consumer Cyclical',
+    'Consumer Defensive',
+    'Energy',
+    'Financial Services',
+    'Healthcare',
+    'Industrials',
+    'Real Estate',
+    'Technology',
+    'Utilities'
+]
+
+basic_materials = [
+    'BHP',  # BHP Group Limited
+    'LIN'  # Linde plc
+]
+communication_services = [
+    'GOOGL',  # Alphabet Inc.
+    'META'  # Meta Platforms, Inc.
+]
+consumer_cyclical = [
+    'AMZN',  # Amazon.com, Inc.
+    'TSLA'  # Tesla, Inc.
+]
+consumer_defensive = [
+    'WMT',  # Walmart Inc.
+    'PG'  # The Procter & Gamble Company
+]
+energy = [
+    'XOM',  # Exxon Mobil Corporation
+    'CVX'  # Chevron Corporation
+]
+financial_services = [
+    'BRK-B',  # Berkshire Hathaway Inc.
+    'V'  # Visa Inc.
+]
+healthcare = [
+    'UNH',  # UnitedHealth Group Incorporated
+    'JNJ'  # Johnson & Johnson
+]
+industrials = [
+    'UPS',  # United Parcel Service, Inc.
+    'UNP'  # Union Pacific Corporation
+]
+real_estate = [
+    'AMT',  # American Tower Corporation
+    'PLD'  # Prologis, Inc.
+]
+technology = [
+    'AAPL', # Apple Inc.
+    'MSFT'  # Microsoft Corporation
+]
+utilities = [
+    'NEE',  # NextEra Energy, Inc.
+    'SO'  # The Southern Company
+]
