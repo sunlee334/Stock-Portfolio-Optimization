@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# https://medium.datadriveninvestor.com/build-your-own-stock-portfolio-optimizer-web-app-with-streamlit-be8654ef8c65
+# https://sunlee334-stock-portfolio-optimization-app-cgekqm.streamlitapp.com/
 # streamlit run app.py
 
 import numpy as np
