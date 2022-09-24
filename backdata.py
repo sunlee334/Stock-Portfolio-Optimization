@@ -81,8 +81,17 @@ sectors = basic_materials + \
 etfs = [
     'BOTZ',  # Global X Robotics & Artificial Intelligence ETF
     'SCHD',  # SCHWAB US DIVIDEND EQUITY ETF
-    'VOO',  # VANGUARD S&P 500 ETF
-    'VTI'  # VANGUARD TOTAL STOCK MARKET ETF
+    'VOO'
 ]
 
 tickers = etfs + sectors
+
+fred_tickers = {
+    'CPI': 'MEDCPIM158SFRBCLE',  # Median Consumer Price Index
+    'CC': 'CCSA',  # Continued Claims
+    'AHE': 'CES0500000003',  # Average Hourly Earnings of All Employees, Total Private
+    'TS10': 'DGS10',
+    # Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted on an Investment Basis
+    'FUNDS': 'FEDFUNDS',  # Federal Funds Effective Rate
+    'USD-KRW': 'DEXKOUS'  # South Korean Won to U.S. Dollar Spot Exchange Rate
+}
