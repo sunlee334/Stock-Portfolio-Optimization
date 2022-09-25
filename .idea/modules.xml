@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Trading.iml" filepath="$PROJECT_DIR$/.idea/Trading.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dash-project/.idea/dash-project.iml" filepath="$PROJECT_DIR$/../dash-project/.idea/dash-project.iml" />
     </modules>
   </component>
 </project>

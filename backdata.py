@@ -1,5 +1,5 @@
 investment = 100
-start_year = 2018
+start_year = 2015
 start_month = 1
 start_day = 1
 start_date = str(start_year) + '-' + str(start_month) + '-' + str(start_day)
@@ -23,8 +23,6 @@ industry_list = [
 ]
 
 basic_materials = [
-    'BHP',  # BHP Group Limited
-    'LIN'  # Linde plc
 ]
 communication_services = [
     'GOOGL'  # Alphabet Inc.
@@ -35,23 +33,18 @@ consumer_cyclical = [
 ]
 consumer_defensive = [
     'WMT',  # Walmart Inc.
-    'PG',  # The Procter & Gamble Company
-    'CMG'  # Chipotle Mexican Grill, Inc.
+    'MCD',  # McDonald's Corporation
+    'KO'  # The Coca-Cola Company
 ]
 energy = [
-    'XOM',  # Exxon Mobil Corporation
-    'CVX'  # Chevron Corporation
 ]
 financial_services = [
-    'BRK-B'  # Berkshire Hathaway Inc.
 ]
 healthcare = [
     'UNH',  # UnitedHealth Group Incorporated
     'JNJ'  # Johnson & Johnson
 ]
 industrials = [
-    'UPS',  # United Parcel Service, Inc.
-    'RTX'  # Raytheon Technologies Corporation
 ]
 real_estate = [
     'AMT',  # American Tower Corporation
@@ -64,27 +57,27 @@ technology = [
 ]
 utilities = [
     'NEE',  # NextEra Energy, Inc.
-    'SO'  # The Southern Company
 ]
 
-sectors = basic_materials + \
-          communication_services + \
-          consumer_cyclical + \
-          consumer_defensive + \
-          energy + \
-          financial_services + \
-          healthcare + \
-          industrials + \
-          real_estate + \
-          technology + \
-          utilities
-etfs = [
+sector_list = basic_materials + \
+              communication_services + \
+              consumer_cyclical + \
+              consumer_defensive + \
+              energy + \
+              financial_services + \
+              healthcare + \
+              industrials + \
+              real_estate + \
+              technology + \
+              utilities
+etf_list = [
+    'ARKK',  # ARK Innovation
     'BOTZ',  # Global X Robotics & Artificial Intelligence ETF
     'SCHD',  # SCHWAB US DIVIDEND EQUITY ETF
     'VOO'
 ]
 
-tickers = etfs + sectors
+ticker_list = etf_list + sector_list
 
 fred_tickers = {
     'CPI': 'MEDCPIM158SFRBCLE',  # Median Consumer Price Index
@@ -92,6 +85,6 @@ fred_tickers = {
     'AHE': 'CES0500000003',  # Average Hourly Earnings of All Employees, Total Private
     'TS10': 'DGS10',
     # Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted on an Investment Basis
-    'FUNDS': 'FEDFUNDS',  # Federal Funds Effective Rate
+    'FUNDS': 'DFF',  # Federal Funds Effective Rate
     'USD-KRW': 'DEXKOUS'  # South Korean Won to U.S. Dollar Spot Exchange Rate
 }
