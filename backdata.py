@@ -1,5 +1,5 @@
 investment = 100
-start_year = 2015
+start_year = 2012
 start_month = 1
 start_day = 1
 start_date = str(start_year) + '-' + str(start_month) + '-' + str(start_day)
@@ -77,7 +77,12 @@ etf_list = [
     'VOO'
 ]
 
-ticker_list = etf_list + sector_list
+leverage_list = [
+    'TQQQ',
+    'SOXL'
+]
+
+ticker_list = etf_list + sector_list + leverage_list
 
 fred_tickers = {
     'CPI': 'MEDCPIM158SFRBCLE',  # Median Consumer Price Index
