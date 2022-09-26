@@ -12,9 +12,9 @@ import plotly.express as px
 
 from datetime import datetime
 from stqdm import stqdm
-from backdata import investment
+# from backdata import investment
 from backdata import start_year, start_month, start_day
-from backdata import ticker_list, sector_list, etf_list, fred_tickers
+from backdata import sector_list, fred_tickers
 from backdata import fred_api_key
 from fredapi import Fred
 
