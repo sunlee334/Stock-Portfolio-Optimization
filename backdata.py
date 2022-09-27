@@ -53,7 +53,10 @@ real_estate = [
 ]
 technology = [
     'AAPL',  # Apple Inc.
-    'MSFT'  # Microsoft Corporation
+    'AMD',  # Advanced Micro Devices, Inc.
+    'TXN',  # Texas Instruments Incorporated
+    'MSFT',  # Microsoft Corporation
+    'NVDA'  # NVIDIA Corporation
 ]
 utilities = [
     'NEE',  # NextEra Energy, Inc.
@@ -71,15 +74,17 @@ sector_list = basic_materials + \
               technology + \
               utilities
 etf_list = [
-    'ARKK',  # ARK Innovation
+    'ARKX',  # ARK Space Exploration & Innovation ETF
     'BOTZ',  # Global X Robotics & Artificial Intelligence ETF
     'SCHD',  # SCHWAB US DIVIDEND EQUITY ETF
-    'VOO'
+    'SOXX',  # iShares Semiconductor ETF
+    'VOO',  # Vanguard 500 Index Fund
+    'QCLN'  # First Trust NASDAQ Clean Edge Green Energy Index Fund
 ]
 
 leverage_list = [
-    'TQQQ',
-    'SOXL'
+    'TQQQ',  # ProShares UltraPro QQQ
+    'SOXL'  # Direxion Daily Semiconductor Bull 3X Shares
 ]
 
 ticker_list = etf_list + sector_list + leverage_list

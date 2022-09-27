@@ -12,7 +12,6 @@ import plotly.express as px
 
 from datetime import datetime
 from stqdm import stqdm
-# from backdata import investment
 from backdata import start_year, start_month, start_day
 from backdata import sector_list, etf_list, leverage_list, ticker_list, fred_tickers
 from backdata import fred_api_key
@@ -49,20 +48,23 @@ def variance_last(data):
 
 
 def variance_init(data):
-    data = float((data.iloc[-1].values - data.iloc[0].values) / data.iloc[0].values * 100)
+    data = float((data.iloc[-1] - data.iloc[0]) / data.iloc[0] * 100)
     return data
 
 
-def set_portfolio_fig(ticker_list):
-    # Tickers
-    tickers_string = ', '.join(ticker_list).upper().replace(",", ", ")
-    tickers = yf_stocks_processing(tickers=ticker_list, start_date=start_date, end_date=end_date).dropna(axis=0)
+def get_tickers(ticker_list, start_date, end_date):
+    tickers = yf_stocks_processing(tickers=ticker_list, start_date=start_date, end_date=end_date)
 
+    return tickers
+
+
+def set_portfolio_fig(ticker_list, tickers_data):
+    tickers_string = ', '.join(ticker_list).upper().replace(",", ", ")
     # Display everything on Streamlit
     st.caption("Your Portfolio Consists of \n{}".format(tickers_string))
-    st.metric(label="Total", value="$ " + "{:,.2f}".format(tickers.iloc[-1].sum()))
+    st.metric(label="Total", value="$ " + "{:,.2f}".format(tickers_data.iloc[-1].sum()))
 
-    daily_ret = tickers.pct_change()  # 종목 수정 종가데이터의 일별주가상승률
+    daily_ret = tickers_data.pct_change()  # 종목 수정 종가데이터의 일별주가상승률
     annual_ret = daily_ret.mean() * 252  # 연평균 주가상승률
     daily_cov = daily_ret.cov()  # 일별주가상승률의 공분산행렬
     annual_cov = daily_cov * 252  # 공분산행렬과 영업일 수의 곱
@@ -95,7 +97,7 @@ def set_portfolio_fig(ticker_list):
     weight_dict = dict(zip(list(max_sharpe[ticker_list].columns),
                            max_sharpe[ticker_list].values.flatten().tolist()))
 
-    ticker_value_df = tickers.rename(index={tickers.index[-1]: 'Value'})
+    ticker_value_df = tickers_data.rename(index={tickers_data.index[-1]: 'Value'})
     ticker_value_df = pd.DataFrame(ticker_value_df.iloc[-1]).reset_index()
     ticker_value_df.rename(columns={'index': 'Ticker Name'}, inplace=True)
 
@@ -108,7 +110,7 @@ def set_portfolio_fig(ticker_list):
 
     st.table(df.style.format({'Value': '{:.2f}', 'Ticker % in Portfolio': "{:.1f}" + ' %'}))
 
-    df = ((tickers.pct_change() + 1).cumprod())
+    df = ((tickers_data.pct_change() + 1).cumprod())
 
     fig = px.line(df, x=df.index, y=ticker_list)
 
@@ -138,17 +140,6 @@ KRW = fred_processing(ticker='USD-KRW', start_date=start_date, column_name='USD-
 BTC = yf_stock_processing(ticker='BTC-USD', start_date=start_date, end_date=end_date, column_name='BTC')
 SP500 = yf_stock_processing(ticker='^GSPC', start_date=start_date, end_date=end_date, column_name='S&P500')
 NASDAQ = yf_stock_processing(ticker='^IXIC', start_date=start_date, end_date=end_date, column_name='NASDAQ')
-
-# # 수익률 확인
-# SOXL = yf_stock_processing(ticker='SOXL', start_date=start_date, end_date=end_date, column_name='SOXL')
-# VOO = yf_stock_processing(ticker='VOO', start_date=start_date, end_date=end_date, column_name='VOO')
-# TSLA = yf_stock_processing(ticker='TSLA', start_date=start_date, end_date=end_date, column_name='TSLA')
-# st.metric(label="SOXL", value="{:,.2f}".format(SOXL.iloc[-1][0]),
-#           delta=str("{:,.2f}".format(variance_init(SOXL))) + '%')
-# st.metric(label="VOO", value="{:,.2f}".format(VOO.iloc[-1][0]),
-#           delta=str("{:,.2f}".format(variance_init(VOO))) + '%')
-# st.metric(label="TSLA", value="{:,.2f}".format(TSLA.iloc[-1][0]),
-#           delta=str("{:,.2f}".format(variance_init(TSLA))) + '%')
 
 st.header("Economic Indicator")
 score_tab, data_tab, chart_tab, memo_tab = st.tabs(['💯 Score', '🗃 Data', '📈 Chart', '📝 Memo'])
@@ -229,17 +220,47 @@ st.header("Portfolio")
 summary_tab, stock_tab, etf_tab, leverage_tab = st.tabs(['🚀 Summary', '📈 Stock', '🏛️ ETF', '💰 Leverage'])
 
 with summary_tab:
-    fig = set_portfolio_fig(ticker_list)
+    tickers_data = get_tickers(ticker_list, start_date, end_date)
+    fig = set_portfolio_fig(ticker_list, tickers_data.dropna(axis=0))
     st.plotly_chart(fig, use_container_width=True)
 
 with stock_tab:
-    fig = set_portfolio_fig(sector_list)
+    stocks_data = get_tickers(sector_list, start_date, end_date)
+    fig = set_portfolio_fig(sector_list, stocks_data.dropna(axis=0))
     st.plotly_chart(fig, use_container_width=True)
 
 with etf_tab:
-    fig = set_portfolio_fig(etf_list)
+    etfs_data = get_tickers(etf_list, start_date, end_date)
+    fig = set_portfolio_fig(etf_list, etfs_data.dropna(axis=0))
     st.plotly_chart(fig, use_container_width=True)
 
 with leverage_tab:
-    fig = set_portfolio_fig(leverage_list)
+    leverages_data = get_tickers(leverage_list, start_date, end_date)
+    fig = set_portfolio_fig(leverage_list, leverages_data.dropna(axis=0))
     st.plotly_chart(fig, use_container_width=True)
+
+st.header("수익률 확인")
+# 수익률 확인
+columns = list(tickers_data.columns.values)
+
+tickers = []
+values = []
+variance = []
+
+for i in range(len(columns)):
+    ticker_data = [tickers_data.dropna(axis=0)[columns[i]]][0]
+    tickers.append(columns[i])
+    values.append(ticker_data.iloc[-1])
+    variance.append(variance_init(ticker_data))
+
+    # st.metric(label=str(columns[i]), value="{:,.2f}".format(ticker_data.iloc[-1]),
+    #           delta=str("{:,.2f}".format(variance_init(ticker_data))) + '%')
+
+df = pd.DataFrame({'Tickers': tickers,
+                   'Values': values,
+                   'Variance': variance})
+
+st.dataframe(df.style.format({
+    'Values': "{:.2f}",
+    'Variance': "{:.2f}" + '%'
+}))
