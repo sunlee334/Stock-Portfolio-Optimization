@@ -1,5 +1,5 @@
 investment = 100
-start_year = 2012
+start_year = 2018
 start_month = 1
 start_day = 1
 start_date = str(start_year) + '-' + str(start_month) + '-' + str(start_day)
@@ -25,6 +25,7 @@ industry_list = [
 basic_materials = [
 ]
 communication_services = [
+    'IRDM',  # Iridium Communications Inc.
     'GOOGL'  # Alphabet Inc.
 ]
 consumer_cyclical = [
@@ -45,6 +46,7 @@ healthcare = [
     'JNJ'  # Johnson & Johnson
 ]
 industrials = [
+    'LMT'  # Lockheed Martin Corporation
 ]
 real_estate = [
     'AMT',  # American Tower Corporation
@@ -74,12 +76,8 @@ sector_list = basic_materials + \
               technology + \
               utilities
 etf_list = [
-    'ARKX',  # ARK Space Exploration & Innovation ETF
-    'BOTZ',  # Global X Robotics & Artificial Intelligence ETF
     'SCHD',  # SCHWAB US DIVIDEND EQUITY ETF
-    'SOXX',  # iShares Semiconductor ETF
-    'VOO',  # Vanguard 500 Index Fund
-    'QCLN'  # First Trust NASDAQ Clean Edge Green Energy Index Fund
+    'VOO'  # Vanguard 500 Index Fund
 ]
 
 leverage_list = [
