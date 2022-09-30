@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="845955fa-74cf-4c8b-bc0d-720596f7f468" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/_Rate_of_Return.py" afterPathEscaped="$PROJECT_DIR$/pages/💰_Rate_of_Return.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/_DataFrame_Demo.py" afterPathEscaped="$PROJECT_DIR$/pages/📊_DataFrame_Demo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/_Portfolio.py" afterPathEscaped="$PROJECT_DIR$/pages/📋_Portfolio.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rawdata/investment_portfolio.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rawdata/portfolio.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backdata.py" beforeDir="false" afterPath="$PROJECT_DIR$/backdata.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
