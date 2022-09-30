@@ -33,9 +33,9 @@ consumer_cyclical = [
     'TSLA'  # Tesla, Inc.
 ]
 consumer_defensive = [
-    'WMT',  # Walmart Inc.
+    # 'WMT',  # Walmart Inc.
     'MCD',  # McDonald's Corporation
-    'KO'  # The Coca-Cola Company
+    # 'KO'  # The Coca-Cola Company
 ]
 energy = [
 ]
@@ -43,7 +43,7 @@ financial_services = [
 ]
 healthcare = [
     'UNH',  # UnitedHealth Group Incorporated
-    'JNJ'  # Johnson & Johnson
+    # 'JNJ'  # Johnson & Johnson
 ]
 industrials = [
     'LMT'  # Lockheed Martin Corporation

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # https://sunlee334-stock-portfolio-optimization-app-cgekqm.streamlitapp.com/
-# streamlit run app.py
+# streamlit run Home.py
 
 import numpy as np
 import pandas as pd
@@ -16,6 +16,11 @@ from backdata import start_year, start_month, start_day
 from backdata import sector_list, etf_list, leverage_list, ticker_list, fred_tickers
 from backdata import fred_api_key
 from fredapi import Fred
+
+st.set_page_config(page_title="Sun's Stock Portfolio Optimizer", page_icon="📈")
+st.title("Sun's Stock Portfolio Optimizer")
+
+st.sidebar.markdown("# Main page 🎈")
 
 
 def fred_processing(ticker, start_date, column_name):
@@ -116,9 +121,6 @@ def set_portfolio_fig(ticker_list, tickers_data):
 
     return fig
 
-
-st.set_page_config(page_title="Sun's Stock Portfolio Optimizer", layout="wide")
-st.title("Sun's Stock Portfolio Optimizer")
 
 fred = Fred(api_key=fred_api_key)
 
