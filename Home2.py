@@ -144,7 +144,7 @@ SP500 = yf_stock_processing(ticker='^GSPC', start_date=start_date, end_date=end_
 NASDAQ = yf_stock_processing(ticker='^IXIC', start_date=start_date, end_date=end_date, column_name='NASDAQ')
 
 st.header("Economic Indicator")
-score_tab, data_tab, chart_tab = st.tabs(['💯 Score', '🗃 Data', '📈 Chart'])
+score_tab, data_tab, chart_tab, memo_tab = st.tabs(['💯 Score', '🗃 Data', '📈 Chart', '📝 Memo'])
 
 with score_tab:
     col1, col2, col3 = st.columns(3)
@@ -212,53 +212,57 @@ with chart_tab:
     # Federal Funds
     st.bar_chart(FUNDS)
 
+with memo_tab:
+    st.header("A tab with a memo")
+    st.subheader("연준에 맞서지 마라")
+
 st.warning("Don't fight the Fed", icon="⚠️")
-#
-# st.header("Portfolio")
-# summary_tab, stock_tab, etf_tab, leverage_tab = st.tabs(['🚀 Summary', '📈 Stock', '🏛️ ETF', '💰 Leverage'])
-#
-# with summary_tab:
-#     tickers_data = get_tickers(ticker_list, start_date, end_date)
-#     fig = set_portfolio_fig(ticker_list, tickers_data.dropna(axis=0))
-#     st.plotly_chart(fig, use_container_width=True)
-#
-# with stock_tab:
-#     stocks_data = get_tickers(sector_list, start_date, end_date)
-#     fig = set_portfolio_fig(sector_list, stocks_data.dropna(axis=0))
-#     st.plotly_chart(fig, use_container_width=True)
-#
-# with etf_tab:
-#     etfs_data = get_tickers(etf_list, start_date, end_date)
-#     fig = set_portfolio_fig(etf_list, etfs_data.dropna(axis=0))
-#     st.plotly_chart(fig, use_container_width=True)
-#
-# with leverage_tab:
-#     leverages_data = get_tickers(leverage_list, start_date, end_date)
-#     fig = set_portfolio_fig(leverage_list, leverages_data.dropna(axis=0))
-#     st.plotly_chart(fig, use_container_width=True)
-#
-# st.header("수익률 확인")
-# # 수익률 확인
-# columns = list(tickers_data.columns.values)
-#
-# tickers = []
-# values = []
-# variance = []
-#
-# for i in range(len(columns)):
-#     ticker_data = [tickers_data.dropna(axis=0)[columns[i]]][0]
-#     tickers.append(columns[i])
-#     values.append(ticker_data.iloc[-1])
-#     variance.append(variance_init(ticker_data))
-#
-#     # st.metric(label=str(columns[i]), value="{:,.2f}".format(ticker_data.iloc[-1]),
-#     #           delta=str("{:,.2f}".format(variance_init(ticker_data))) + '%')
-#
-# df = pd.DataFrame({'Tickers': tickers,
-#                    'Values': values,
-#                    'Variance': variance})
-#
-# st.dataframe(df.style.format({
-#     'Values': "{:.2f}",
-#     'Variance': "{:.2f}" + '%'
-# }))
+
+st.header("Portfolio")
+summary_tab, stock_tab, etf_tab, leverage_tab = st.tabs(['🚀 Summary', '📈 Stock', '🏛️ ETF', '💰 Leverage'])
+
+with summary_tab:
+    tickers_data = get_tickers(ticker_list, start_date, end_date)
+    fig = set_portfolio_fig(ticker_list, tickers_data.dropna(axis=0))
+    st.plotly_chart(fig, use_container_width=True)
+
+with stock_tab:
+    stocks_data = get_tickers(sector_list, start_date, end_date)
+    fig = set_portfolio_fig(sector_list, stocks_data.dropna(axis=0))
+    st.plotly_chart(fig, use_container_width=True)
+
+with etf_tab:
+    etfs_data = get_tickers(etf_list, start_date, end_date)
+    fig = set_portfolio_fig(etf_list, etfs_data.dropna(axis=0))
+    st.plotly_chart(fig, use_container_width=True)
+
+with leverage_tab:
+    leverages_data = get_tickers(leverage_list, start_date, end_date)
+    fig = set_portfolio_fig(leverage_list, leverages_data.dropna(axis=0))
+    st.plotly_chart(fig, use_container_width=True)
+
+st.header("수익률 확인")
+# 수익률 확인
+columns = list(tickers_data.columns.values)
+
+tickers = []
+values = []
+variance = []
+
+for i in range(len(columns)):
+    ticker_data = [tickers_data.dropna(axis=0)[columns[i]]][0]
+    tickers.append(columns[i])
+    values.append(ticker_data.iloc[-1])
+    variance.append(variance_init(ticker_data))
+
+    # st.metric(label=str(columns[i]), value="{:,.2f}".format(ticker_data.iloc[-1]),
+    #           delta=str("{:,.2f}".format(variance_init(ticker_data))) + '%')
+
+df = pd.DataFrame({'Tickers': tickers,
+                   'Values': values,
+                   'Variance': variance})
+
+st.dataframe(df.style.format({
+    'Values': "{:.2f}",
+    'Variance': "{:.2f}" + '%'
+}))

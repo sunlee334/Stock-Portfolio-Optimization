@@ -1,5 +1,5 @@
 investment = 100
-start_year = 2018
+start_year = 2022
 start_month = 1
 start_day = 1
 start_date = str(start_year) + '-' + str(start_month) + '-' + str(start_day)

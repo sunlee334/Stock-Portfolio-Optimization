@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="845955fa-74cf-4c8b-bc0d-720596f7f468" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Home2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rawdata/portfolio.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backdata.py" beforeDir="false" afterPath="$PROJECT_DIR$/backdata.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_Rate_of_Return.py" beforePathEscaped="$PROJECT_DIR$/pages/💰_Rate_of_Return.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_Rate_of_Return.py" afterPathEscaped="$PROJECT_DIR$/pages/💰_Rate_of_Return.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rawdata/investment_portfolio.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/rawdata/investment_portfolio.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
