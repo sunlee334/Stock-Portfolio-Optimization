@@ -213,7 +213,7 @@ with chart_tab:
     st.bar_chart(FUNDS)
 
 st.warning("Don't fight the Fed", icon="⚠️")
-#
+
 # st.header("Portfolio")
 # summary_tab, stock_tab, etf_tab, leverage_tab = st.tabs(['🚀 Summary', '📈 Stock', '🏛️ ETF', '💰 Leverage'])
 #
