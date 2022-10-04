@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="845955fa-74cf-4c8b-bc0d-720596f7f468" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.streamlit/config.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/2__AAPL_Analysis.py" afterPathEscaped="$PROJECT_DIR$/pages/2_📋_AAPL_Analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_Rate_of_Return.py" beforePathEscaped="$PROJECT_DIR$/pages/💰_Rate_of_Return.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/4___Rate_of_Return.py" afterPathEscaped="$PROJECT_DIR$/pages/4__💰_Rate_of_Return.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_DataFrame_Demo.py" beforePathEscaped="$PROJECT_DIR$/pages/📊_DataFrame_Demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/5__DataFrame_Demo.py" afterPathEscaped="$PROJECT_DIR$/pages/5_📊_DataFrame_Demo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_Portfolio.py" beforePathEscaped="$PROJECT_DIR$/pages/📋_Portfolio.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/1__Portfolio.py" afterPathEscaped="$PROJECT_DIR$/pages/1_📋_Portfolio.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/2__AAPL_Analysis.py" beforePathEscaped="$PROJECT_DIR$/pages/2_📋_AAPL_Analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/2__AAPL_Analysis.py" afterPathEscaped="$PROJECT_DIR$/pages/2_📋_AAPL_Analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/4___Rate_of_Return.py" beforePathEscaped="$PROJECT_DIR$/pages/4__💰_Rate_of_Return.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/4__Rate_of_Return.py" afterPathEscaped="$PROJECT_DIR$/pages/4_💰_Rate_of_Return.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/quantstats-tearsheet.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,18 +35,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/sunlee/Develop/Stock-Portfolio-Optimization/pages",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/sunlee/Develop/Stock-Portfolio-Optimization/pages&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pages" />

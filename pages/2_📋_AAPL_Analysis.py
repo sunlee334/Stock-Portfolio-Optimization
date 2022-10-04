@@ -1,5 +1,7 @@
 import os
-
+from os.path import isfile, join
+from os import listdir
+import pathlib
 import streamlit as st
 import quantstats as qs
 import streamlit.components.v1 as components
@@ -8,12 +10,25 @@ st.set_page_config(page_title="Apple Analysis", page_icon="📋", layout="wide")
 st.markdown("# Portfolio Analysis")
 st.sidebar.header("Portfolio Analysis")
 
-dirname = os.path.dirname(__file__)
-investment_portfolio = os.path.join(dirname, r'./../reports/aapl.html')
-investment_portfolio
+# get current directory
+# path = os.getcwd()
+# path
+# # parent directory
+# parent = os.path.dirname(path)
+# parent
+#
+# dirname = os.path.dirname(__file__)
+# dirname
 
-stock = qs.utils.download_returns('AAPL')
-qs.reports.html(stock, "SPY", title='AAPL vs SPY', output=investment_portfolio)
+parent_path = pathlib.Path(__file__).parent.parent.resolve()
+parent_path
+data_path = os.path.join(parent_path, "aapl")
+data_path
+
+
+stock = qs.utils.download_returns('SPY')
+os.getcwd()
+qs.reports.html(stock, "SPY", title='AAPL vs SPY', output=data_path)
 # qs.reports.html(stock, benchmark="SPY",
 #                 title='AAPL vs SPY',
 #                 output='aapl.html')
